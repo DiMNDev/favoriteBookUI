@@ -83,16 +83,19 @@ const signInFunction = async () => {
   const errorField = document.querySelector(".signInError");
 
   //Make Request
-  const authorized = await fetch("http://localhost:3000/user/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: emailField.value,
-      password: passwordField.value,
-    }),
-  });
+  const authorized = await fetch(
+    "https://favoritebookapi.onrender.com/user/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailField.value,
+        password: passwordField.value,
+      }),
+    }
+  );
 
   //Handle Server/DB Errors
   const response = await authorized.json();
@@ -146,17 +149,20 @@ const signUpFunction = async () => {
   }
 
   //Make Request
-  const authorized = await fetch("http://localhost:3000/user/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username: aliasField.value,
-      email: emailField.value,
-      password: passwordField.value,
-    }),
-  });
+  const authorized = await fetch(
+    "https://favoritebookapi.onrender.com/user/register",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: aliasField.value,
+        email: emailField.value,
+        password: passwordField.value,
+      }),
+    }
+  );
 
   //Handle Server/DB Errors
   const response = await authorized.json();
@@ -180,7 +186,7 @@ const addNewEntry = async () => {
   const author = document.getElementById("author");
   const genre = document.getElementById("genre");
   const ISBN = document.getElementById("ISBN");
-  await fetch("http://localhost:3000/user/books/addBook", {
+  await fetch("https://favoritebookapi.onrender.com/user/books/addBook", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
@@ -210,37 +216,46 @@ const clearError = (errorField) => {
 };
 //Populate lists from response
 const getAllFavorties = async () => {
-  const all = await fetch("http://localhost:3000/user/books/all", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
-      Accept: "application/json",
-    },
-  });
+  const all = await fetch(
+    "https://favoritebookapi.onrender.com/user/books/all",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
+        Accept: "application/json",
+      },
+    }
+  );
   const loadedArray = await all.json();
   // console.log(loadedArray);
   return loadedArray.allBooks;
 };
 const getSavedFavorties = async () => {
-  const books = await fetch("http://localhost:3000/user/books/allSavedArray", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
-      Accept: "application/json",
-    },
-  });
+  const books = await fetch(
+    "https://favoritebookapi.onrender.com/user/books/allSavedArray",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
+        Accept: "application/json",
+      },
+    }
+  );
   const loadedArray = await books.json();
   // console.log(loadedArray);
   return loadedArray.books;
 };
 const getUserFavorties = async () => {
-  const books = await fetch("http://localhost:3000/user/books/allUserArray", {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
-      Accept: "application/json",
-    },
-  });
+  const books = await fetch(
+    "https://favoritebookapi.onrender.com/user/books/allUserArray",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
+        Accept: "application/json",
+      },
+    }
+  );
   const loadedArray = await books.json();
   // console.log(loadedArray);
   return loadedArray.books;
@@ -248,14 +263,17 @@ const getUserFavorties = async () => {
 //Toggle Favorites - Heart
 const callToggleHeart = async (isbnAsId) => {
   try {
-    const status = await fetch("http://localhost:3000/user/books/toggleHeart", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ ISBN: isbnAsId }),
-    });
+    const status = await fetch(
+      "https://favoritebookapi.onrender.com/user/books/toggleHeart",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ ISBN: isbnAsId }),
+      }
+    );
     console.log(status);
     response = await status.json();
     console.log(JSON.stringify({ ISBN: isbnAsId }));
@@ -267,7 +285,7 @@ const callToggleHeart = async (isbnAsId) => {
 };
 //Add New Comment
 const addNewComment = async (ISBN, comment) => {
-  await fetch("http://localhost:3000/user/books/addComment", {
+  await fetch("https://favoritebookapi.onrender.com/user/books/addComment", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
@@ -286,7 +304,7 @@ const deleteComment = async (commentBtn) => {
   console.log(`This is the comment to delete ${commentID}`);
   try {
     const status = await fetch(
-      "http://localhost:3000/user/books/deleteComment",
+      "https://favoritebookapi.onrender.com/user/books/deleteComment",
       {
         method: "POST",
         headers: {
@@ -315,14 +333,17 @@ const deleteComment = async (commentBtn) => {
 //Get One Book
 const loadOne = async (ISBN) => {
   try {
-    const oneBook = await fetch("http://localhost:3000/user/books/one", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({ ISBN: ISBN }),
-    });
+    const oneBook = await fetch(
+      "https://favoritebookapi.onrender.com/user/books/one",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("JWT")}`,
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({ ISBN: ISBN }),
+      }
+    );
     response = await oneBook.json();
     return response;
   } catch (error) {
