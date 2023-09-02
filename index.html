@@ -2,209 +2,215 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height initial-scale=1"
+    />
     <title>Our favorite books</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="mainContainer">
-      <div class="input-card">
-        <div class="closeContainer">
-          <div class="closeBtn">
-            <div class="closeline1"></div>
-            <div class="closeline2"></div>
+      <div class="viceContainer">
+        <div class="input-card">
+          <div class="closeContainer">
+            <div class="closeBtn">
+              <div class="closeline1"></div>
+              <div class="closeline2"></div>
+            </div>
+          </div>
+          <h1>NEW ENTRY</h1>
+          <div class="newEntryCard">
+            <!-- <label for="email" class="signIn">Email</label> -->
+            <input
+              type="text"
+              id="title"
+              class="entryTitle"
+              placeholder="BOOK TITLE"
+            />
+            <!-- <label for="password" class="signIn">Password</label> -->
+            <input
+              type="text"
+              id="author"
+              class="entryAuthor"
+              placeholder="AUTHOR"
+            />
+            <input
+              type="text"
+              id="genre"
+              class="entryGenre"
+              placeholder="GENRE"
+            />
+            <input type="text" id="ISBN" class="entryISBN" placeholder="ISBN" />
+            <div class="entryBtn">ENTRY</div>
           </div>
         </div>
-        <h1>NEW ENTRY</h1>
-        <div class="newEntryCard">
-          <!-- <label for="email" class="signIn">Email</label> -->
-          <input
-            type="text"
-            id="title"
-            class="entryTitle"
-            placeholder="BOOK TITLE"
-          />
-          <!-- <label for="password" class="signIn">Password</label> -->
-          <input
-            type="text"
-            id="author"
-            class="entryAuthor"
-            placeholder="AUTHOR"
-          />
-          <input
-            type="text"
-            id="genre"
-            class="entryGenre"
-            placeholder="GENRE"
-          />
-          <input type="text" id="ISBN" class="entryISBN" placeholder="ISBN" />
-          <div class="entryBtn">ENTRY</div>
+        <div class="login-card">
+          <h1>Login</h1>
+          <div class="signInCard hidden">
+            <!-- <label for="email" class="signIn">Email</label> -->
+            <input
+              type="email"
+              id="signInEmail"
+              class="signIn email"
+              placeholder="Your Email"
+              value=""
+            />
+            <!-- <label for="password" class="signIn">Password</label> -->
+            <input
+              type="password"
+              id="signInPassword"
+              class="signIn password"
+              placeholder="Your Password"
+              value=""
+            />
+          </div>
+          <div class="signInError error"></div>
+          <div class="btn signInBtn">Sign In</div>
+          <div class="signUpCard hidden">
+            <!-- <label for="email" class="signIn">Email</label> -->
+            <input
+              type="email"
+              id="signUpEmail"
+              class="signUp"
+              placeholder="Your Email"
+            />
+            <input
+              type="text"
+              id="alias"
+              class="signUp"
+              placeholder="Your Alias"
+            />
+            <!-- <label for="password" class="signIn">Password</label> -->
+            <input
+              type="password"
+              id="signUpPassword"
+              class="signUp"
+              placeholder="Your Password"
+            />
+            <input
+              type="password"
+              id="confirmPassword"
+              class="signUp"
+              placeholder="Confirm Password"
+            />
+          </div>
+          <div class="signUpError error"></div>
+          <div class="btn signUpBtn">Sign Up</div>
         </div>
-      </div>
-      <div class="login-card">
-        <h1>Login</h1>
-        <div class="signInCard hidden">
-          <!-- <label for="email" class="signIn">Email</label> -->
-          <input
-            type="email"
-            id="signInEmail"
-            class="signIn email"
-            placeholder="Your Email"
-            value=""
-          />
-          <!-- <label for="password" class="signIn">Password</label> -->
-          <input
-            type="password"
-            id="signInPassword"
-            class="signIn password"
-            placeholder="Your Password"
-            value=""
-          />
-        </div>
-        <div class="signInError error"></div>
-        <div class="btn signInBtn">Sign In</div>
-        <div class="signUpCard hidden">
-          <!-- <label for="email" class="signIn">Email</label> -->
-          <input
-            type="email"
-            id="signUpEmail"
-            class="signUp"
-            placeholder="Your Email"
-          />
-          <input
-            type="text"
-            id="alias"
-            class="signUp"
-            placeholder="Your Alias"
-          />
-          <!-- <label for="password" class="signIn">Password</label> -->
-          <input
-            type="password"
-            id="signUpPassword"
-            class="signUp"
-            placeholder="Your Password"
-          />
-          <input
-            type="password"
-            id="confirmPassword"
-            class="signUp"
-            placeholder="Confirm Password"
-          />
-        </div>
-        <div class="signUpError error"></div>
-        <div class="btn signUpBtn">Sign Up</div>
-      </div>
-      <div class="book">
-        <div class="leftSide">
-          <div class="leftCover page fillerPage leftPage"></div>
-          <div class="page1 page fillerPage leftPage"></div>
-          <div class="page2 page fillerPage leftPage"></div>
-          <div class="page3 page fillerPage leftPage"></div>
-          <div class="page4 page fillerPage leftPage"></div>
-          <div class="left-page userFavoritesPage page">
-            <div class="userFavoriteDetailContainer hidden">
-              <div class="detailHeader">
-                <div class="xUserDetailContainer">
-                  <div class="xUserDetailBtn">
-                    <div class="xUDline1 line"></div>
-                    <div class="xUDline2 line"></div>
-                  </div>
-                </div>
-                <div class="heartUserDetailContainer">
-                  <div class="heartUserDetailBtn">
-                    <div class="heartUDline1 hLine"></div>
-                    <div class="heartUDline2 hLine"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="detailScroll">
-                <h2 class="titleDetail detail">Title</h2>
-                <h3 class="authorDetail detail">Author</h3>
-                <h3 class="genreDetail detail">Genre</h3>
-                <h3 class="isbnDetail detail">ISBN</h3>
-                <textarea
-                  name="commentInput"
-                  id="commentInput"
-                  class="commentInput"
-                  cols="30"
-                  rows="10"
-                ></textarea>
-                <div class="submitComment">Add comment</div>
-                <div class="commentSection">
-                  <div class="comment">
-                    <div class="commentUser">User</div>
-                    <div class="commentContext">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Officiis fugit dolor atque maiores voluptatibus, illo
-                      nesciunt enim voluptate? Mollitia cumque perferendis quod
-                      incidunt nemo officia, deleniti maiores! Consequuntur,
-                      aperiam fuga.
+        <div class="book">
+          <div class="leftSide">
+            <div class="leftCover page fillerPage leftPage"></div>
+            <div class="page1 page fillerPage leftPage"></div>
+            <div class="page2 page fillerPage leftPage"></div>
+            <div class="page3 page fillerPage leftPage"></div>
+            <div class="page4 page fillerPage leftPage"></div>
+            <div class="left-page userFavoritesPage page">
+              <div class="userFavoriteDetailContainer hidden">
+                <div class="detailHeader">
+                  <div class="xUserDetailContainer">
+                    <div class="xUserDetailBtn">
+                      <div class="xUDline1 line"></div>
+                      <div class="xUDline2 line"></div>
                     </div>
                   </div>
-                  <div class="comment">
-                    <div class="commentUser">User</div>
-                    <div class="commentContext">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Officiis fugit dolor atque maiores voluptatibus, illo
-                      nesciunt enim voluptate? Mollitia cumque perferendis quod
-                      incidunt nemo officia, deleniti maiores! Consequuntur,
-                      aperiam fuga.
+                  <div class="heartUserDetailContainer">
+                    <div class="heartUserDetailBtn">
+                      <div class="heartUDline1 hLine"></div>
+                      <div class="heartUDline2 hLine"></div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="detailFooter"></div>
-            </div>
-            <div class="pageHeader">
-              <div class="welcomeMsg">
-                Welcome,<span class="username">User</span>
-              </div>
-              <div class="addContainer">
-                <div class="addBtn">
-                  <div class="pline1 line"></div>
-                  <div class="pline2 line"></div>
-                </div>
-              </div>
-              <h1>Your Favorites</h1>
-            </div>
-            <ul class="userFavorites favoritesList">
-              <li class="listItem">
-                <div class="itemTitle">Driven</div>
-                <div class="itemAuthor">Larry H. Miller</div>
-              </li>
-            </ul>
-            <div class="pageFooter"></div>
-          </div>
-        </div>
 
-        <div class="rightSide">
-          <div class="right-page allFavoritesPage page">
-            <div class="pageHeader">
-              <div class="xContainer">
-                <div class="signOutBtn">
-                  <div class="xline1 line"></div>
-                  <div class="xline2 line"></div>
+                <div class="detailScroll">
+                  <h2 class="titleDetail detail">Title</h2>
+                  <h3 class="authorDetail detail">Author</h3>
+                  <h3 class="genreDetail detail">Genre</h3>
+                  <h3 class="isbnDetail detail">ISBN</h3>
+                  <textarea
+                    name="commentInput"
+                    id="commentInput"
+                    class="commentInput"
+                    cols="30"
+                    rows="10"
+                  ></textarea>
+                  <div class="submitComment">Add comment</div>
+                  <div class="commentSection">
+                    <div class="comment">
+                      <div class="commentUser">User</div>
+                      <div class="commentContext">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Officiis fugit dolor atque maiores voluptatibus, illo
+                        nesciunt enim voluptate? Mollitia cumque perferendis
+                        quod incidunt nemo officia, deleniti maiores!
+                        Consequuntur, aperiam fuga.
+                      </div>
+                    </div>
+                    <div class="comment">
+                      <div class="commentUser">User</div>
+                      <div class="commentContext">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Officiis fugit dolor atque maiores voluptatibus, illo
+                        nesciunt enim voluptate? Mollitia cumque perferendis
+                        quod incidunt nemo officia, deleniti maiores!
+                        Consequuntur, aperiam fuga.
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <div class="detailFooter"></div>
               </div>
-              <h1>All Favorites</h1>
+              <div class="pageHeader">
+                <div class="welcomeMsg">
+                  Welcome,<span class="username">User</span>
+                </div>
+                <div class="addContainer">
+                  <div class="addBtn">
+                    <div class="pline1 line"></div>
+                    <div class="pline2 line"></div>
+                  </div>
+                </div>
+                <h1>Your Favorites</h1>
+              </div>
+              <ul class="userFavorites favoritesList">
+                <li class="listItem">
+                  <div class="itemTitle">Driven</div>
+                  <div class="itemAuthor">Larry H. Miller</div>
+                </li>
+              </ul>
+              <div class="pageFooter"></div>
             </div>
-            <ul class="allFavorites favoritesList">
-              <li class="listItem">
-                <div class="itemTitle">Driven</div>
-                <div class="itemAuthor">Larry H. Miller</div>
-              </li>
-            </ul>
-            <div class="pageFooter"></div>
           </div>
-          <div class="page5 page fillerPage rightPage"></div>
-          <div class="page6 page fillerPage rightPage"></div>
-          <div class="page7 page fillerPage rightPage"></div>
-          <div class="page8 page fillerPage rightPage"></div>
-          <div class="rightCover page fillerPage rightPage"></div>
+
+          <div class="rightSide">
+            <div class="right-page allFavoritesPage page">
+              <div class="pageHeader">
+                <div class="xContainer">
+                  <div class="signOutBtn">
+                    <div class="xline1 line"></div>
+                    <div class="xline2 line"></div>
+                  </div>
+                </div>
+                <h1>All Favorites</h1>
+              </div>
+              <ul class="allFavorites favoritesList">
+                <li class="listItem">
+                  <div class="itemTitle">Driven</div>
+                  <div class="itemAuthor">Larry H. Miller</div>
+                </li>
+              </ul>
+              <div class="pageFooter"></div>
+            </div>
+            <div class="page5 page fillerPage rightPage"></div>
+            <div class="page6 page fillerPage rightPage"></div>
+            <div class="page7 page fillerPage rightPage"></div>
+            <div class="page8 page fillerPage rightPage"></div>
+            <div class="rightCover page fillerPage rightPage"></div>
+          </div>
         </div>
       </div>
     </div>
     <script src="script.js"></script>
+    <script src="scrollToCenter.js"></script>
   </body>
 </html>

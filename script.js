@@ -99,7 +99,7 @@ const signInFunction = async () => {
 
   //Handle Server/DB Errors
   const response = await authorized.json();
-  console.log(response);
+  // console.log(response);
   if (response.msg) {
     errorField.innerHTML = response.msg;
     clearError(errorField);
@@ -117,6 +117,7 @@ const signInFunction = async () => {
     console.log(`Welcome, ${response.user.name}`);
     const username = response.user.name;
     // loadUserPoemsFromDatabase();
+
     emailField.value = "";
     passwordField.value = "";
     loadDashboard(username);
@@ -401,6 +402,7 @@ const loadUserFavorites = async () => {
   //auth?
   //Populate saved favorites from array
   const userFavArray = await getUserFavorties();
+  userFavorites = [];
   // console.log(userFavArray);
   userFavorites = userFavArray;
   userFavorites.forEach((book, index) => {
@@ -412,6 +414,7 @@ const loadUserFavorites = async () => {
   });
   //Populate saved favorites from array
   const savedFavArray = await getSavedFavorties();
+  savedFavorites = [];
   // console.log(savedFavArray);
   savedFavorites = savedFavArray;
   savedFavorites.forEach((book, index) => {
@@ -684,12 +687,12 @@ heartBtn.addEventListener("click", async () => {
           console.log("ADDED");
           fillHeart();
           rootVars.style.setProperty("--heartAnimation", "beating");
-          loadUserFavorites();
+          await loadUserFavorites();
         } else if (response === "removed") {
           console.log("REMOVED");
           drainHeart();
           rootVars.style.setProperty("--heartAnimation", "coding");
-          loadUserFavorites();
+          await loadUserFavorites();
         }
       }
     }

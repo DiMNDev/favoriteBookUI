@@ -43,6 +43,12 @@ html {
   font-family: "Rubik", sans-serif;
   font-weight: 700;
   color: aliceblue;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+body {
+  min-width: 180rem;
+  min-height: 100rem;
 }
 
 .mainContainer {
@@ -51,7 +57,39 @@ html {
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.907);
+  background-color: rgba(255, 255, 255, 0.007);
+}
+@media (max-width: 850px) {
+  .mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 130rem;
+    min-height: 100rem;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.007);
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 130rem;
+    min-height: 100rem;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+}
+
+.viceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: max-content;
 }
 
 .welcomeMsg {
@@ -196,6 +234,9 @@ input {
 }
 
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 2rem;
   border: 0.2rem solid aliceblue;
   border-radius: 1rem;
@@ -450,6 +491,7 @@ input {
 h1 {
   position: absolute;
   top: 10%;
+  font-size: 2.5rem;
 }
 ul {
   position: absolute;
@@ -622,6 +664,9 @@ ul {
 
 .itemTitle {
   font-size: 1.8rem;
+}
+.itemAuthor {
+  font-size: 1.1rem;
 }
 
 .userFavoriteDetailContainer {
