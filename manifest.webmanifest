@@ -1,0 +1,6 @@
+{
+  "icons": [
+    { "src": "img/book_icon_192.png", "type": "image/png", "sizes": "121x192" },
+    { "src": "img/book_icon_512.png", "type": "image/png", "sizes": "322x512" }
+  ]
+}
