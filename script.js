@@ -81,7 +81,9 @@ const signInFunction = async () => {
   const emailField = document.getElementById("signInEmail");
   const passwordField = document.getElementById("signInPassword");
   const errorField = document.querySelector(".signInError");
-
+  const spinner = document.querySelector(".spinner");
+  sessionStorage.setItem("JWT", "");
+  spinner.style.visibility = "visible";
   //Make Request
   const authorized = await fetch(
     "https://favoritebookapi.onrender.com/user/login",
@@ -99,6 +101,7 @@ const signInFunction = async () => {
 
   //Handle Server/DB Errors
   const response = await authorized.json();
+  spinner.style.visibility = "hidden";
   // console.log(response);
   if (response.msg) {
     errorField.innerHTML = response.msg;
@@ -116,8 +119,6 @@ const signInFunction = async () => {
     console.log("Log in successful");
     console.log(`Welcome, ${response.user.name}`);
     const username = response.user.name;
-    // loadUserPoemsFromDatabase();
-
     emailField.value = "";
     passwordField.value = "";
     loadDashboard(username);
@@ -131,7 +132,7 @@ const signUpFunction = async () => {
   const passwordField = document.getElementById("signUpPassword");
   const confirmField = document.getElementById("confirmPassword");
   const subscribeBox = document.getElementById("subscribe");
-
+  const spinner = document.querySelector(".spinner");
   //Handle Form Errors
   if (!aliasField.value) {
     throw new Error("Please provide your alias");
@@ -148,6 +149,8 @@ const signUpFunction = async () => {
   if (passwordField.value !== confirmField.value) {
     throw new Error("Passwords do not match");
   }
+  sessionStorage.setItem("JWT", "");
+  spinner.style.visibility = "visible";
 
   //Make Request
   const authorized = await fetch(
@@ -167,6 +170,7 @@ const signUpFunction = async () => {
 
   //Handle Server/DB Errors
   const response = await authorized.json();
+  spinner.style.visibility = "hidden";
   if (response.msg) {
     console.log(response.msg);
   }
@@ -178,7 +182,13 @@ const signUpFunction = async () => {
   //Front-end verification
   if (sessionStorage.getItem("JWT")) {
     console.log("Register and Log in successful");
-    loadDashboard();
+    const username = response.user.name;
+    console.log(username);
+    aliasField.value = "";
+    emailField.value = "";
+    passwordField.value = "";
+    confirmField.value = "";
+    loadDashboard(username);
   }
 };
 //Add Entry

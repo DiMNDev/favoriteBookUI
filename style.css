@@ -92,6 +92,30 @@ body {
   height: max-content;
 }
 
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 2rem solid #f3f3f359;
+  border-top: 2rem solid maroon;
+  border-radius: 50%;
+  width: 16rem;
+  height: 16rem;
+  animation: spin 0.5s linear infinite;
+  translate: -50% -50%;
+  z-index: 1000;
+  visibility: hidden;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .welcomeMsg {
   position: absolute;
   top: 7%;
